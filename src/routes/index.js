@@ -4,6 +4,13 @@ import authRouter from '../modules/auth/auth.routes.js';
 import usersRouter from '../modules/users/users.routes.js';
 import patientsRouter from '../modules/patients/patients.routes.js';
 import appointmentsRouter from '../modules/appointments/appointments.routes.js';
+import examinationsRouter from '../modules/examinations/examinations.routes.js';
+import treatmentPlansRouter from '../modules/treatment-plans/plans.routes.js';
+import treatmentsRouter from '../modules/treatments/treatments.routes.js';
+import paymentsRouter from '../modules/payments/payments.routes.js';
+import attachmentsRouter from '../modules/attachments/attachments.routes.js';
+import inventoryRouter from '../modules/inventory/inventory.routes.js';
+import reportsRouter from '../modules/reports/reports.routes.js';
 
 const router = Router();
 
@@ -11,6 +18,13 @@ router.use('/auth', authRouter);
 router.use('/users', usersRouter);
 router.use('/patients', patientsRouter);
 router.use('/appointments', appointmentsRouter);
+router.use('/examinations', examinationsRouter);
+router.use('/treatment-plans', treatmentPlansRouter);
+router.use('/treatments', treatmentsRouter);
+router.use('/payments', paymentsRouter);
+router.use('/attachments', attachmentsRouter);
+router.use('/inventory', inventoryRouter);
+router.use('/reports', reportsRouter);
 
 /**
  * @openapi

@@ -57,3 +57,815 @@
   }
 ] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
 [2026-06-26 18:30:17] [31merror[39m: Test log error message
+[2026-06-26 18:52:08] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 18:52:18] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 18:52:28] [31merror[39m: Test log error message
+[2026-06-26 18:56:15] [31merror[39m: Unhandled Error 💥: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "Invalid treatment plan ID format",
+    "path": [
+      "id"
+    ]
+  }
+] {"stack":"ZodError: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid treatment plan ID format\",\n    \"path\": [\n      \"id\"\n    ]\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:10:35)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatment-plans/undefined","method":"GET"}
+[2026-06-26 18:56:15] [31merror[39m: Unhandled Error 💥: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "Invalid treatment plan ID format",
+    "path": [
+      "id"
+    ]
+  }
+] {"stack":"ZodError: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid treatment plan ID format\",\n    \"path\": [\n      \"id\"\n    ]\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:10:35)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatment-plans/undefined","method":"PATCH"}
+[2026-06-26 18:56:15] [31merror[39m: 
+Invalid `prisma.patient.delete()` invocation in
+/home/youssef/Dental-Management-System/tests/plans.test.js:89:34
+
+  86 }
+  87 // Cleanup patient
+  88 if (testPatientId) {
+→ 89   await prisma.patient.delete(
+Foreign key constraint violated: `TreatmentPlan_patientId_fkey (index)`
+[2026-06-26 18:56:18] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 18:56:26] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 18:56:32] [31merror[39m: Test log error message
+[2026-06-26 18:56:47] [31merror[39m: Unhandled Error 💥: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "Invalid treatment plan ID format",
+    "path": [
+      "id"
+    ]
+  }
+] {"stack":"ZodError: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid treatment plan ID format\",\n    \"path\": [\n      \"id\"\n    ]\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:10:35)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatment-plans/undefined","method":"GET"}
+[2026-06-26 18:56:47] [31merror[39m: Unhandled Error 💥: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "Invalid treatment plan ID format",
+    "path": [
+      "id"
+    ]
+  }
+] {"stack":"ZodError: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid treatment plan ID format\",\n    \"path\": [\n      \"id\"\n    ]\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:10:35)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatment-plans/undefined","method":"PATCH"}
+[2026-06-26 18:56:47] [31merror[39m: 
+Invalid `prisma.patient.delete()` invocation in
+/home/youssef/Dental-Management-System/tests/plans.test.js:89:34
+
+  86 }
+  87 // Cleanup patient
+  88 if (testPatientId) {
+→ 89   await prisma.patient.delete(
+Foreign key constraint violated: `TreatmentPlan_patientId_fkey (index)`
+[2026-06-26 18:57:11] [31merror[39m: 
+Invalid `prisma.treatmentPlan.update()` invocation in
+/home/youssef/Dental-Management-System/src/modules/treatment-plans/plans.repository.js:80:33
+
+  77 }
+  78 
+  79 async update(id, data) {
+→ 80   return prisma.treatmentPlan.update({
+         where: {
+           id: "6c9a36b8-b623-4dda-b8f3-5d2a005400c5"
+         },
+         data: {
+           estimatedCost: 900,
+           status: "Active"
+                   ~~~~~~~~
+         },
+         include: {
+           patient: true,
+           doctor: {
+             include: {
+               user: true
+             }
+           }
+         }
+       })
+
+Invalid value for argument `status`. Expected TreatmentPlanStatus.
+[2026-06-26 18:57:11] [31merror[39m: Unhandled Error 💥: 
+Invalid `prisma.treatmentPlan.update()` invocation in
+/home/youssef/Dental-Management-System/src/modules/treatment-plans/plans.repository.js:80:33
+
+  77 }
+  78 
+  79 async update(id, data) {
+→ 80   return prisma.treatmentPlan.update({
+         where: {
+           id: "6c9a36b8-b623-4dda-b8f3-5d2a005400c5"
+         },
+         data: {
+           estimatedCost: 900,
+           status: "Active"
+                   ~~~~~~~~
+         },
+         include: {
+           patient: true,
+           doctor: {
+             include: {
+               user: true
+             }
+           }
+         }
+       })
+
+Invalid value for argument `status`. Expected TreatmentPlanStatus. {"stack":"PrismaClientValidationError: \nInvalid `prisma.treatmentPlan.update()` invocation in\n/home/youssef/Dental-Management-System/src/modules/treatment-plans/plans.repository.js:80:33\n\n  77 }\n  78 \n  79 async update(id, data) {\n→ 80   return prisma.treatmentPlan.update({\n         where: {\n           id: \"6c9a36b8-b623-4dda-b8f3-5d2a005400c5\"\n         },\n         data: {\n           estimatedCost: 900,\n           status: \"Active\"\n                   ~~~~~~~~\n         },\n         include: {\n           patient: true,\n           doctor: {\n             include: {\n               user: true\n             }\n           }\n         }\n       })\n\nInvalid value for argument `status`. Expected TreatmentPlanStatus.\n    at wn (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at TreatmentPlansService.updateTreatmentPlan (/home/youssef/Dental-Management-System/src/modules/treatment-plans/plans.service.js:92:21)\n    at updateTreatmentPlan (/home/youssef/Dental-Management-System/src/modules/treatment-plans/plans.controller.js:51:20)","url":"/api/v1/treatment-plans/6c9a36b8-b623-4dda-b8f3-5d2a005400c5","method":"PATCH"}
+[2026-06-26 18:57:57] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 18:58:05] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 18:58:10] [31merror[39m: Test log error message
+[2026-06-26 18:59:42] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 18:59:52] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:00:01] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:00:05] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:00:11] [31merror[39m: Test log error message
+[2026-06-26 19:02:08] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:02:12] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:02:16] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:02:24] [31merror[39m: Test log error message
+[2026-06-26 19:04:33] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:04:46] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:04:54] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:04:58] [31merror[39m: Test log error message
+[2026-06-26 19:05:43] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:05:57] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:06:01] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:06:09] [31merror[39m: Test log error message
+[2026-06-26 19:07:29] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:07:38] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:07:43] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:08:01] [31merror[39m: Test log error message
+[2026-06-26 19:08:51] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "appointmentTime"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"appointmentTime\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/appointments","method":"POST"}
+[2026-06-26 19:09:04] [31merror[39m: 
+Invalid `prisma.user.count()` invocation in
+/home/youssef/Dental-Management-System/src/modules/reports/reports.repository.js:25:19
+
+  22 // Doctors
+  23 const [totalDoctors, activeDoctors] = await Promise.all([
+  24   prisma.doctor.count({ where: { deletedAt: null } }),
+→ 25   prisma.user.count({
+         select: {
+           _count: {
+             select: {
+               _all: true
+             }
+           }
+         },
+         where: {
+           role: "DOCTOR",
+           status: "Active",
+                   ~~~~~~~~
+           deletedAt: null
+         }
+       })
+
+Invalid value for argument `status`. Expected UserStatus.
+[2026-06-26 19:09:04] [31merror[39m: Unhandled Error 💥: 
+Invalid `prisma.user.count()` invocation in
+/home/youssef/Dental-Management-System/src/modules/reports/reports.repository.js:25:19
+
+  22 // Doctors
+  23 const [totalDoctors, activeDoctors] = await Promise.all([
+  24   prisma.doctor.count({ where: { deletedAt: null } }),
+→ 25   prisma.user.count({
+         select: {
+           _count: {
+             select: {
+               _all: true
+             }
+           }
+         },
+         where: {
+           role: "DOCTOR",
+           status: "Active",
+                   ~~~~~~~~
+           deletedAt: null
+         }
+       })
+
+Invalid value for argument `status`. Expected UserStatus. {"stack":"PrismaClientValidationError: \nInvalid `prisma.user.count()` invocation in\n/home/youssef/Dental-Management-System/src/modules/reports/reports.repository.js:25:19\n\n  22 // Doctors\n  23 const [totalDoctors, activeDoctors] = await Promise.all([\n  24   prisma.doctor.count({ where: { deletedAt: null } }),\n→ 25   prisma.user.count({\n         select: {\n           _count: {\n             select: {\n               _all: true\n             }\n           }\n         },\n         where: {\n           role: \"DOCTOR\",\n           status: \"Active\",\n                   ~~~~~~~~\n           deletedAt: null\n         }\n       })\n\nInvalid value for argument `status`. Expected UserStatus.\n    at wn (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/home/youssef/Dental-Management-System/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at async Promise.all (index 1)\n    at ReportsRepository.getDashboardStats (/home/youssef/Dental-Management-System/src/modules/reports/reports.repository.js:23:43)\n    at getDashboard (/home/youssef/Dental-Management-System/src/modules/reports/reports.controller.js:6:20)","url":"/api/v1/reports/dashboard","method":"GET"}
+[2026-06-26 19:09:17] [31merror[39m: 
+Invalid `prisma.user.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    role: "DOCTOR",
+    status: "Active",
+            ~~~~~~~~
+    deletedAt: null
+  }
+}
+
+Invalid value for argument `status`. Expected UserStatus.
+[2026-06-26 19:10:09] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "chiefComplaint"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "diagnosis"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"chiefComplaint\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"diagnosis\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/examinations","method":"POST"}
+[2026-06-26 19:10:17] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 19:10:39] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "treatmentName"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "price"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "sessionDate"
+    ],
+    "message": "Invalid date"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"treatmentName\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"nan\",\n    \"path\": [\n      \"price\"\n    ],\n    \"message\": \"Expected number, received nan\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"sessionDate\"\n    ],\n    \"message\": \"Invalid date\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/treatments","method":"POST"}
+[2026-06-26 19:10:43] [31merror[39m: Test log error message

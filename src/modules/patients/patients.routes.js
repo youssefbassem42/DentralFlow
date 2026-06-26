@@ -4,6 +4,8 @@ import { authenticate } from '../../common/middleware/auth.js';
 import { authorize } from '../../common/middleware/rbac.js';
 import { validate } from '../../common/middleware/validate.js';
 import { patientsValidators } from './patients.validator.js';
+import { paymentsController } from '../payments/payments.controller.js';
+import { paymentsValidators } from '../payments/payments.validator.js';
 
 const router = Router();
 
@@ -111,6 +113,36 @@ router
     authorize('ADMIN', 'RECEPTIONIST'),
     validate(patientsValidators.createPatient),
     patientsController.registerPatient
+  );
+
+/**
+ * @openapi
+ * /patients/{id}/financial:
+ *   get:
+ *     summary: Retrieve patient financial ledger
+ *     description: Calculate total invoiced (completed treatments), total paid, patient balance, and history of payments and treatments. Accessible by ADMIN, DOCTOR, and RECEPTIONIST.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       200:
+ *         description: Patient financial ledger retrieved successfully
+ *       404:
+ *         description: Patient not found
+ */
+router
+  .route('/:id/financial')
+  .get(
+    authenticate,
+    authorize('ADMIN', 'DOCTOR', 'RECEPTIONIST'),
+    validate(paymentsValidators.getPatientFinancial),
+    paymentsController.getPatientFinancial
   );
 
 /**
