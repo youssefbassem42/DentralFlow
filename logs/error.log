@@ -1,0 +1,59 @@
+[2026-06-26 18:10:41] [31merror[39m: Test log error message
+[2026-06-26 18:10:57] [31merror[39m: Test log error message
+[2026-06-26 18:19:55] [31merror[39m: Test log error message
+[2026-06-26 18:25:28] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 18:25:34] [31merror[39m: Test log error message
+[2026-06-26 18:30:10] [31merror[39m: Unhandled Error 💥: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "gender"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_date",
+    "path": [
+      "dateOfBirth"
+    ],
+    "message": "Invalid date"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "phone"
+    ],
+    "message": "Required"
+  }
+] {"stack":"ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"gender\"\n    ],\n    \"message\": \"Required\"\n  },\n  {\n    \"code\": \"invalid_date\",\n    \"path\": [\n      \"dateOfBirth\"\n    ],\n    \"message\": \"Invalid date\"\n  },\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"phone\"\n    ],\n    \"message\": \"Required\"\n  }\n]\n    at Object.get error [as error] (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:39:31)\n    at ZodObject.parse (/home/youssef/Dental-Management-System/node_modules/zod/v3/types.js:114:22)\n    at parse (/home/youssef/Dental-Management-System/src/common/middleware/validate.js:4:31)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/rbac.js:13:12)\n    at Layer.handle [as handle_request] (/home/youssef/Dental-Management-System/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/youssef/Dental-Management-System/node_modules/express/lib/router/route.js:149:13)\n    at next (/home/youssef/Dental-Management-System/src/common/middleware/auth.js:43:12)","url":"/api/v1/patients","method":"POST"}
+[2026-06-26 18:30:17] [31merror[39m: Test log error message

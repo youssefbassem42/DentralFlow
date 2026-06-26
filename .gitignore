@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.test
+coverage/
+dist/
+uploads/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+.prettiercache
