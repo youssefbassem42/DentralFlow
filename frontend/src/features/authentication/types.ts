@@ -8,10 +8,12 @@ export const loginSchema = z.object({
 export type LoginCredentials = z.infer<typeof loginSchema>;
 
 export interface User {
-  id: number;
+  id: string | number;
   email: string;
-  firstName: string;
-  lastName: string;
+  name?: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string | null;
   role: 'ADMIN' | 'DOCTOR' | 'RECEPTIONIST';
 }
 

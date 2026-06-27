@@ -1,0 +1,282 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  DOCTOR
+  RECEPTIONIST
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum AppointmentStatus {
+  Scheduled
+  Completed
+  Cancelled
+  Missed
+}
+
+enum TreatmentPlanStatus {
+  Pending
+  InProgress
+  Completed
+  Cancelled
+}
+
+enum PaymentMethod {
+  Cash
+  Visa
+  Insurance
+  Wallet
+}
+
+enum AttachmentType {
+  X_Ray
+  Prescription
+  Images
+  PDF
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String
+  phone     String?
+  role      Role
+  status    UserStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  doctor       Doctor?
+  receptionist Receptionist?
+  patients     Patient[]      @relation("PatientCreator")
+  appointments Appointment[]  @relation("AppointmentCreator")
+  inventory    InventoryItem[] @relation("InventoryCreator")
+
+  @@index([email])
+  @@index([role])
+}
+
+model Doctor {
+  id             String    @id
+  specialization String?
+  licenseNumber  String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  // One-to-one with User
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
+
+  // Relations
+  appointments     Appointment[]
+  examinations     MedicalExamination[]
+  treatmentPlans   TreatmentPlan[]
+  treatments       Treatment[]
+  payments         Payment[]
+  attachments      Attachment[]
+}
+
+model Receptionist {
+  id        String    @id
+  shift     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // One-to-one with User
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Patient {
+  id             String    @id @default(uuid())
+  fullName       String
+  gender         String
+  dateOfBirth    DateTime
+  phone          String
+  email          String?
+  address        String?
+  bloodGroup     String?
+  allergies      String?
+  medicalHistory String?
+  notes          String?
+  createdBy      String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  // Relations
+  creator      User                 @relation("PatientCreator", fields: [createdBy], references: [id])
+  appointments Appointment[]
+  examinations MedicalExamination[]
+  treatmentPlans TreatmentPlan[]
+  treatments   Treatment[]
+  payments     Payment[]
+
+  @@index([phone])
+  @@index([email])
+}
+
+model Appointment {
+  id              String            @id @default(uuid())
+  patientId       String
+  doctorId        String
+  appointmentDate DateTime
+  appointmentTime String
+  status          AppointmentStatus @default(Scheduled)
+  reason          String?
+  notes           String?
+  createdBy       String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  deletedAt       DateTime?
+
+  // Relations
+  patient Patient @relation(fields: [patientId], references: [id])
+  doctor  Doctor  @relation(fields: [doctorId], references: [id])
+  creator User    @relation("AppointmentCreator", fields: [createdBy], references: [id])
+
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([appointmentDate])
+}
+
+model MedicalExamination {
+  id             String    @id @default(uuid())
+  patientId      String
+  doctorId       String
+  chiefComplaint String
+  diagnosis      String
+  clinicalNotes  String?
+  radiologyNotes String?
+  prescription   String?
+  recommendations String?
+  examDate       DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  // Relations
+  patient Patient @relation(fields: [patientId], references: [id])
+  doctor  Doctor  @relation(fields: [doctorId], references: [id])
+
+  @@index([patientId])
+  @@index([doctorId])
+}
+
+model TreatmentPlan {
+  id                String              @id @default(uuid())
+  patientId         String
+  doctorId          String
+  title             String
+  description       String?
+  estimatedCost     Decimal             @db.Decimal(10, 2)
+  estimatedSessions Int
+  status            TreatmentPlanStatus @default(Pending)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  deletedAt         DateTime?
+
+  // Relations
+  patient    Patient     @relation(fields: [patientId], references: [id])
+  doctor     Doctor      @relation(fields: [doctorId], references: [id])
+  treatments Treatment[]
+
+  @@index([patientId])
+  @@index([doctorId])
+}
+
+model Treatment {
+  id              String    @id @default(uuid())
+  patientId       String
+  doctorId        String
+  treatmentPlanId String
+  treatmentName   String
+  toothNumber     Int?
+  procedure       String?
+  price           Decimal   @db.Decimal(10, 2)
+  sessionDate     DateTime
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
+
+  // Relations
+  patient       Patient       @relation(fields: [patientId], references: [id])
+  doctor        Doctor        @relation(fields: [doctorId], references: [id])
+  treatmentPlan TreatmentPlan @relation(fields: [treatmentPlanId], references: [id])
+
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([treatmentPlanId])
+}
+
+model Payment {
+  id            String        @id @default(uuid())
+  patientId     String
+  doctorId      String
+  amount        Decimal       @db.Decimal(10, 2)
+  paymentMethod PaymentMethod
+  invoiceNumber String        @unique
+  notes         String?
+  paymentDate   DateTime      @default(now())
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  deletedAt     DateTime?
+
+  // Relations
+  patient Patient @relation(fields: [patientId], references: [id])
+  doctor  Doctor  @relation(fields: [doctorId], references: [id])
+
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([invoiceNumber])
+}
+
+model Attachment {
+  id        String         @id @default(uuid())
+  doctorId  String
+  fileName  String
+  filePath  String
+  fileType  AttachmentType
+  notes     String?
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  doctor Doctor @relation(fields: [doctorId], references: [id])
+
+  @@index([doctorId])
+}
+
+model InventoryItem {
+  id              String    @id @default(uuid())
+  item            String
+  quantity        Int
+  minimumQuantity Int
+  supplier        String?
+  price           Decimal   @db.Decimal(10, 2)
+  lastUpdated     DateTime  @default(now()) @updatedAt
+  createdBy       String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
+
+  // Relations
+  creator User @relation("InventoryCreator", fields: [createdBy], references: [id])
+
+  @@index([item])
+}

@@ -8,7 +8,12 @@ import {
   Settings, 
   HelpCircle, 
   Info,
-  ClipboardList
+  ClipboardList,
+  TrendingUp,
+  Activity,
+  CreditCard,
+  Paperclip,
+  BarChart3
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -24,6 +29,11 @@ const navItems = [
   { name: 'Patients', path: '/patients', icon: Users },
   { name: 'Appointments', path: '/appointments', icon: Calendar },
   { name: 'Examinations', path: '/examinations', icon: ClipboardList },
+  { name: 'Treatment Plans', path: '/treatment-plans', icon: TrendingUp },
+  { name: 'Treatments', path: '/treatments', icon: Activity },
+  { name: 'Payments', path: '/payments', icon: CreditCard },
+  { name: 'Attachments', path: '/attachments', icon: Paperclip },
+  { name: 'Reports', path: '/reports', icon: BarChart3 },
   { name: 'Doctors', path: '/doctors', icon: Stethoscope },
   { name: 'Warehouse', path: '/warehouse', icon: Archive },
   { name: 'Settings', path: '/settings', icon: Settings },
@@ -34,6 +44,9 @@ export function Sidebar() {
 
   const filteredNavItems = navItems.filter((item) => {
     if (item.path === '/examinations' && user?.role === 'RECEPTIONIST') {
+      return false;
+    }
+    if (item.path === '/reports' && user?.role !== 'ADMIN') {
       return false;
     }
     return true;
