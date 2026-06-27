@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patients - DentalFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#70f8e8",
+                        "surface": "#f8f9ff",
+                        "secondary-fixed-dim": "#4fdbcc",
+                        "surface-variant": "#d9e3f6",
+                        "outline-variant": "#bec7d1",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary": "#2c6956",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#0d503f",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#006492",
+                        "surface-tint": "#006492",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#121c2a",
+                        "tertiary-fixed": "#b1efd8",
+                        "primary-fixed-dim": "#8ccdff",
+                        "on-secondary-fixed": "#00201d",
+                        "on-primary-fixed-variant": "#004b6f",
+                        "outline": "#6f7881",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-background": "#121c2a",
+                        "surface-container-highest": "#d9e3f6",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-container": "#007168",
+                        "surface-dim": "#d0dbed",
+                        "tertiary-container": "#639f8b",
+                        "primary-container": "#2d9cdb",
+                        "on-primary-container": "#003049",
+                        "on-tertiary-container": "#003327",
+                        "on-surface-variant": "#3f4850",
+                        "secondary-fixed": "#70f8e8",
+                        "secondary": "#006a62",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-fixed": "#001e2f",
+                        "inverse-primary": "#8ccdff",
+                        "surface-container-low": "#eff4ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#96d3bd",
+                        "on-tertiary-fixed": "#002118",
+                        "surface-container": "#e6eeff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#27313f",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#cae6ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "12": "12px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "margin": "32px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "3xl": "64px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased bg-background">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline bg-surface dark:bg-inverse-surface py-lg px-md z-50">
+<div class="flex items-center gap-sm mb-xl">
+<img alt="DentalFlow Logo" class="w-8 h-8 rounded" src="data:image/png;base64,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"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">DentalFlow</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Clinic Management</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-sm px-md rounded-lg font-title-lg text-title-lg mb-lg hover:bg-surface-tint transition-colors duration-200 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add</span> Quick Action
+        </button>
+<ul class="flex-1 flex flex-col gap-xs">
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span> Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-primary font-bold bg-primary-container/10 transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px] icon-fill" data-icon="person">person</span> Patients
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span> Appointments
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="medical_services">medical_services</span> Doctors
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span> Warehouse
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span> Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span> Support
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="info">info</span> Help
+            </a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="hidden md:flex items-center justify-between px-lg z-40 fixed top-0 right-0 w-[calc(100%-256px)] h-16 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm border-b border-outline-variant dark:border-outline">
+<div class="flex-1 max-w-md">
+<div class="relative focus-within:ring-2 focus-within:ring-primary rounded-full">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high text-on-surface placeholder-on-surface-variant pl-margin pr-sm py-[6px] rounded-full border-none focus:ring-0 font-body-md text-body-md" placeholder="Search across DentalFlow..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-lg text-title-lg overflow-hidden">
+<img alt="Dr. Smith" class="w-full h-full object-cover" data-alt="A professional headshot of a modern dentist wearing a white coat against a clean, light clinical background. The lighting is bright and evenly distributed, conveying trust, hygiene, and expertise. The aesthetic is clean, medical, and minimalist. High resolution portrait photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMliWte0s9ew1urxhK2Mvz3vFo5Ogf9pfxlMgso9_hR37NHFfUHPJ_jPUDOVw6QCE-h3cTX22x9ns75cI4R7dio9LRA8v6kJXrraJSZixOpdviLr8aaLsuToPoCLdfA_E0NyCiclA34xjERtIcDtnYXEy4QV6BmNLHx_SSUZ7MWi_Jz4Yo08yl6L7p8lFhqOdBMft7yPZYeICw84ISpjwBDzOPuUO9VxdRxLrVn5WQTx6Pq8jxA7ymwSSGOjeVl35NVRo64rx9CZc2"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-64 pt-16 min-h-screen pb-2xl flex flex-col">
+<div class="px-gutter py-lg flex-1">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Patients</h2>
+<button class="bg-primary hover:bg-surface-tint text-on-primary font-title-lg text-title-lg py-sm px-md rounded-lg flex items-center gap-xs transition-colors duration-200 shadow-sm self-start sm:self-auto">
+<span class="material-symbols-outlined text-[20px]">add</span> Add New Patient
+                </button>
+</div>
+<!-- Filters Area -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-12 p-md mb-lg shadow-[0px_1px_3px_rgba(0,0,0,0.05),_0px_4px_6px_rgba(0,0,0,0.02)]">
+<div class="flex flex-wrap gap-md items-end">
+<div class="flex-1 min-w-[200px]">
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-xs">Search Patients</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface text-on-surface placeholder-on-surface-variant pl-margin pr-sm py-xs rounded-12 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md h-10" placeholder="Name, ID, or Phone..." type="text"/>
+</div>
+</div>
+<div class="w-full sm:w-auto">
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-xs">Status</label>
+<select class="w-full sm:w-40 bg-surface text-on-surface py-xs pl-sm pr-margin rounded-12 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md h-10 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236f7881%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_8px_center] bg-[length:16px]">
+<option>All Status</option>
+<option>Active</option>
+<option>Inactive</option>
+</select>
+</div>
+<div class="w-full sm:w-auto">
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-xs">Last Visit</label>
+<select class="w-full sm:w-40 bg-surface text-on-surface py-xs pl-sm pr-margin rounded-12 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md h-10 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236f7881%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_8px_center] bg-[length:16px]">
+<option>Any Time</option>
+<option>Last 30 Days</option>
+<option>Last 6 Months</option>
+</select>
+</div>
+<div class="w-full sm:w-auto">
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-xs">Dentist</label>
+<select class="w-full sm:w-48 bg-surface text-on-surface py-xs pl-sm pr-margin rounded-12 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md h-10 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236f7881%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_8px_center] bg-[length:16px]">
+<option>All Doctors</option>
+<option>Dr. Smith</option>
+<option>Dr. Jones</option>
+</select>
+</div>
+<button class="w-full sm:w-auto bg-surface-container-high hover:bg-surface-variant text-on-surface font-title-lg text-title-lg py-xs px-md rounded-12 border border-outline-variant transition-colors duration-200 h-10 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> More Filters
+                    </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-12 shadow-[0px_1px_3px_rgba(0,0,0,0.05),_0px_4px_6px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-bright">
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Patient</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ID</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Last Visit</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Next Appt</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Balance</th>
+<th class="py-sm px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-[#F1F5F9] transition-colors duration-200 group">
+<td class="py-sm px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-title-lg text-title-lg shrink-0">
+                                            JS
+                                        </div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">John Smith</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">+1 (555) 123-4567</p>
+</div>
+</div>
+</td>
+<td class="py-sm px-md text-on-surface-variant">#PT-1042</td>
+<td class="py-sm px-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary-container/20 text-on-tertiary-container">Active</span>
+</td>
+<td class="py-sm px-md text-on-surface">Oct 12, 2023</td>
+<td class="py-sm px-md text-on-surface">Nov 15, 2023 <br/><span class="text-on-surface-variant text-[12px]">Cleaning</span></td>
+<td class="py-sm px-md text-right font-medium text-on-surface">$120.00</td>
+<td class="py-sm px-md text-center">
+<div class="flex items-center justify-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-[#F1F5F9] transition-colors duration-200 group">
+<td class="py-sm px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center font-title-lg text-title-lg shrink-0">
+                                            ED
+                                        </div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">Emily Davis</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">+1 (555) 987-6543</p>
+</div>
+</div>
+</td>
+<td class="py-sm px-md text-on-surface-variant">#PT-1043</td>
+<td class="py-sm px-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-error-container/20 text-on-error-container">Inactive</span>
+</td>
+<td class="py-sm px-md text-on-surface">Jan 05, 2023</td>
+<td class="py-sm px-md text-on-surface-variant italic">Unscheduled</td>
+<td class="py-sm px-md text-right font-medium text-error">$45.00</td>
+<td class="py-sm px-md text-center">
+<div class="flex items-center justify-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-[#F1F5F9] transition-colors duration-200 group">
+<td class="py-sm px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0">
+<img alt="Michael Brown" class="w-full h-full object-cover" data-alt="A small circular avatar portrait of an adult male patient smiling slightly, plain light gray background, professional corporate portrait style, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBATGMQGDeRSuPptEpJAffOnuHkqhiHZmRYjsv1JxYlX6YnBGLi96gVEdoO11I2mf8mF3gA5x6I06zlH8_XhkLNa9SIG6iWtuqr1S1XIBF-m1n4BTK7y7sN7WoQcgI8C4cG68WpAHsW0JoNXBnYYFiH4D-NZ_SAG28fy5EJ-9H9AnlRl0c_j9yL14K489rV5oPxFOKbvR9TEQVC51fCS_wCcfASVLbo_nsaU7JjG2GLha8dCoyTN--YYkr9lKoGRUjSOn8ZWV-HXksA"/>
+</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">Michael Brown</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">+1 (555) 246-8101</p>
+</div>
+</div>
+</td>
+<td class="py-sm px-md text-on-surface-variant">#PT-1044</td>
+<td class="py-sm px-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary-container/20 text-on-tertiary-container">Active</span>
+</td>
+<td class="py-sm px-md text-on-surface">Oct 20, 2023</td>
+<td class="py-sm px-md text-on-surface">Dec 10, 2023 <br/><span class="text-on-surface-variant text-[12px]">Crown Prep</span></td>
+<td class="py-sm px-md text-right font-medium text-on-surface">$0.00</td>
+<td class="py-sm px-md text-center">
+<div class="flex items-center justify-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant hover:bg-[#F1F5F9] transition-colors duration-200 group">
+<td class="py-sm px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-title-lg text-title-lg shrink-0">
+                                            AW
+                                        </div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">Alice Wong</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">+1 (555) 369-2580</p>
+</div>
+</div>
+</td>
+<td class="py-sm px-md text-on-surface-variant">#PT-1045</td>
+<td class="py-sm px-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary-container/20 text-on-tertiary-container">Active</span>
+</td>
+<td class="py-sm px-md text-on-surface">Sep 15, 2023</td>
+<td class="py-sm px-md text-on-surface">Mar 15, 2024 <br/><span class="text-on-surface-variant text-[12px]">Checkup</span></td>
+<td class="py-sm px-md text-right font-medium text-on-surface">$0.00</td>
+<td class="py-sm px-md text-center">
+<div class="flex items-center justify-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-outline-variant hover:bg-[#F1F5F9] transition-colors duration-200 group">
+<td class="py-sm px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0">
+<img alt="Sarah Johnson" class="w-full h-full object-cover" data-alt="A small circular avatar portrait of an adult female patient with dark hair, plain white background, professional yet friendly appearance, high resolution studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM_ik_wqx_58Q23wlv0e688fp8zb9GDT6ySOgGBkRIXsR_m3CzVTcNF5HDTMONg0VGb8Fb0LF7oRWQsgpRIAQa9fQ7ZRy0decd-XKHG7KqwvOxT1UPWEVt1gvevmBcoZLLSeLfEvwAOTYULOzjmAbFb58vpUp0Gg1RKgk48-NqTxj3Nq-wv8n4d_BTX5FhTWWv_CIdDsgovSBOxrght1cOv8V1-EObG-EKJeq5S6vCPQ_KMKq9_l-ukufcQYEleuacJYxG8vwdtuiy"/>
+</div>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">Sarah Johnson</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">+1 (555) 741-8520</p>
+</div>
+</div>
+</td>
+<td class="py-sm px-md text-on-surface-variant">#PT-1046</td>
+<td class="py-sm px-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary-container/20 text-on-tertiary-container">Active</span>
+</td>
+<td class="py-sm px-md text-on-surface">Oct 22, 2023</td>
+<td class="py-sm px-md text-on-surface">Nov 02, 2023 <br/><span class="text-on-surface-variant text-[12px]">Consultation</span></td>
+<td class="py-sm px-md text-right font-medium text-error">$350.00</td>
+<td class="py-sm px-md text-center">
+<div class="flex items-center justify-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between px-md py-sm border-t border-outline-variant bg-surface-bright">
+<p class="font-body-md text-body-md text-on-surface-variant">Showing 1 to 5 of 10 entries</p>
+<div class="flex items-center gap-xs">
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant transition-colors disabled:opacity-50" disabled=""><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">2</button>
+<button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Component Integration -->
+<footer class="flex justify-between items-center px-lg py-md mt-auto bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline">
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant dark:text-surface-variant">
+                © 2024 DentalFlow SaaS. v2.4.0
+            </div>
+<div class="flex gap-md font-label-md text-label-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Compliance</a>
+</div>
+</footer>
+</main>
+</body></html>

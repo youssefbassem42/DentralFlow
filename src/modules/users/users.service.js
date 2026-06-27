@@ -4,8 +4,8 @@ import { NotFoundError, ConflictError, BadRequestError } from '../../common/erro
 import { UserDto } from './users.dto.js';
 
 export class UsersService {
-  async getAllUsers() {
-    const users = await usersRepository.findMany();
+  async getAllUsers(filters) {
+    const users = await usersRepository.findMany(filters);
     return UserDto.array(users);
   }
 

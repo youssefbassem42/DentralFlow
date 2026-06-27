@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appointment Calendar - DentralFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002118",
+                        "inverse-surface": "#27313f",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bec7d1",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-container": "#70f8e8",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#2c6956",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-fixed": "#b1efd8",
+                        "primary-container": "#2d9cdb",
+                        "secondary-fixed": "#70f8e8",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#003049",
+                        "inverse-primary": "#8ccdff",
+                        "on-background": "#121c2a",
+                        "on-tertiary-container": "#003327",
+                        "on-tertiary-fixed-variant": "#0d503f",
+                        "secondary": "#006a62",
+                        "tertiary-container": "#639f8b",
+                        "primary": "#006492",
+                        "on-secondary-fixed": "#00201d",
+                        "outline": "#6f7881",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-surface": "#121c2a",
+                        "on-secondary-container": "#007168",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d9e3f6",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-surface-variant": "#3f4850",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#96d3bd",
+                        "surface-tint": "#006492",
+                        "primary-fixed": "#cae6ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#dee9fc",
+                        "secondary-fixed-dim": "#4fdbcc",
+                        "primary-fixed-dim": "#8ccdff",
+                        "on-primary-fixed": "#001e2f",
+                        "surface-container": "#e6eeff",
+                        "on-primary-fixed-variant": "#004b6f",
+                        "surface-dim": "#d0dbed",
+                        "surface": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin": "32px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "unit": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }],
+                        "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Grid specific styles for the calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 60px repeat(7, 1fr);
+            grid-template-rows: auto repeat(12, minmax(60px, auto)); /* 8am to 8pm (12 hours) */
+        }
+        
+        .time-col {
+            grid-column: 1;
+        }
+        
+        .day-col-1 { grid-column: 2; }
+        .day-col-2 { grid-column: 3; }
+        .day-col-3 { grid-column: 4; }
+        .day-col-4 { grid-column: 5; }
+        .day-col-5 { grid-column: 6; }
+        .day-col-6 { grid-column: 7; }
+        .day-col-7 { grid-column: 8; }
+        
+        /* Time rows mapping (8am = row 2, etc, because row 1 is header) */
+        .time-row-8 { grid-row: 2; }
+        .time-row-9 { grid-row: 3; }
+        .time-row-10 { grid-row: 4; }
+        .time-row-11 { grid-row: 5; }
+        .time-row-12 { grid-row: 6; }
+        .time-row-13 { grid-row: 7; }
+        .time-row-14 { grid-row: 8; }
+        .time-row-15 { grid-row: 9; }
+        .time-row-16 { grid-row: 10; }
+        .time-row-17 { grid-row: 11; }
+        .time-row-18 { grid-row: 12; }
+        .time-row-19 { grid-row: 13; }
+
+        /* Utility for 30min increments if needed later, right now full hours */
+        
+        /* Custom scrollbar for main area */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec7d1; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6f7881; 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant bg-surface flex flex-col p-md z-50">
+<div class="mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined filled text-primary">local_hospital</span>
+                DentralFlow
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Clinical Suite</p>
+</div>
+<button class="w-full mb-6 bg-primary text-on-primary py-2 px-4 rounded-lg font-label-md text-label-md flex justify-center items-center gap-2 hover:brightness-95 transition-all duration-200 shadow-sm">
+<span class="material-symbols-outlined">add</span>
+            New Appointment
+        </button>
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined filled" data-icon="event">event</span>
+<span class="font-label-md text-label-md">Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-md text-label-md">Doctors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Warehouse</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg mt-auto mb-2" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="h-16 fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-lg">
+<div class="flex-1 flex items-center">
+<!-- Search placeholder if needed -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-md font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search patients, doctors..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded-full p-2 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded-full p-2 transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded-full p-2 transition-all">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-2">
+<img alt="Dr. Julian Vance" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male doctor with glasses, wearing a white coat over a light blue shirt. Bright, clean clinical lighting. High resolution, clear facial features, modern healthcare setting vibe. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-KQRLg3f0CEoWZNgffWEVojn27CT15ua9YgtXwJUQPzgvuNIJsYQe8LfGwGENcGtJzZ6YqZEk8-lLCBa3InjSKGZ701FdJPVbnqTxXJtk982hUOcy-p2K042nckvfCNCfKEuD5EcZ77LlyNzS1jI5ikhSVjp3Z_KENBtgfEZ5xJF-jCQNjjeSuxsPeo7XYy_HP9yEwXwZk2TtKAdhJl5VrOYtUPr1tsif4hdmyOdddEe2l64BEXSG5IxYXyOwJNw8-cg-VN6CmDEy"/>
+</div>
+</div>
+</header>
+<!-- Main Layout Content -->
+<main class="ml-64 mt-16 flex-1 h-[calc(100vh-4rem)] flex flex-col bg-background relative z-10">
+<!-- Toolbar -->
+<div class="px-gutter py-md bg-surface border-b border-outline-variant flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Appointments</h2>
+<div class="h-6 w-px bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface border border-outline-variant rounded-md font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors shadow-sm">
+                        Today
+                    </button>
+<div class="flex items-center border border-outline-variant rounded-md bg-surface shadow-sm overflow-hidden">
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-low transition-colors border-r border-outline-variant">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<div class="px-4 py-1.5 font-label-md text-label-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">calendar_month</span>
+                            Oct 21 - 27, 2024
+                        </div>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-low transition-colors border-l border-outline-variant">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-surface-container-low p-1 rounded-lg border border-outline-variant">
+<button class="px-3 py-1 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Day</button>
+<button class="px-3 py-1 rounded-md font-label-md text-label-md bg-surface text-on-surface shadow-sm font-medium">Week</button>
+<button class="px-3 py-1 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Month</button>
+<button class="px-3 py-1 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Timeline</button>
+</div>
+<button class="bg-primary text-on-primary py-1.5 px-4 rounded-md font-label-md text-label-md hover:brightness-95 transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> Book
+                </button>
+</div>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<!-- Filter Sidebar -->
+<aside class="w-64 border-r border-outline-variant bg-surface-container-lowest p-md shrink-0 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
+<!-- Mini Calendar Placeholder (Visual representation) -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-title-lg text-title-lg text-on-surface">October 2024</h3>
+<div class="flex gap-1">
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded p-1"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="text-on-surface-variant hover:bg-surface-container-low rounded p-1"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-label-sm text-label-sm text-outline mb-2">
+<div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-body-md text-body-md text-on-surface">
+<div class="text-outline-variant p-1">29</div><div class="text-outline-variant p-1">30</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">1</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">2</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">3</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">4</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">5</div>
+<!-- Just a few rows for conceptual representation -->
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">6</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">7</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">8</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">9</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">10</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">11</div>
+<div class="p-1 hover:bg-surface-container-high rounded cursor-pointer">12</div>
+<!-- Active week row -->
+<div class="p-1 bg-surface-container-low rounded">13</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">14</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">15</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">16</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">17</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">18</div>
+<div class="p-1 bg-surface-container-highest rounded text-on-surface font-medium">19</div>
+<!-- ... -->
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Filter by Doctor -->
+<div>
+<h4 class="font-label-md text-label-md text-outline uppercase tracking-wider mb-3">Filter by Doctor</h4>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Dr. Sarah Jenkins</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Dr. Michael Chen</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Dr. Emily Rossi</span>
+</label>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Filter by Status -->
+<div>
+<h4 class="font-label-md text-label-md text-outline uppercase tracking-wider mb-3">Status</h4>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="font-body-md text-body-md text-on-surface">Scheduled</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+<span class="font-body-md text-body-md text-on-surface">Completed</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<div class="w-3 h-3 rounded-full bg-error-container"></div>
+<span class="font-body-md text-body-md text-on-surface">Cancelled</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<div class="w-3 h-3 rounded-full bg-orange-200"></div> <!-- Custom token conceptual mapping -->
+<span class="font-body-md text-body-md text-on-surface">Missed</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Calendar Grid Area -->
+<div class="flex-1 bg-surface overflow-auto custom-scrollbar relative">
+<div class="min-w-[800px]"> <!-- Ensure min width for readability -->
+<!-- Header Row (Days) -->
+<div class="calendar-grid sticky top-0 bg-surface z-20 border-b border-outline-variant shadow-sm text-center">
+<div class="time-col border-r border-outline-variant p-2 flex items-end justify-center text-label-sm text-outline uppercase">
+                            Time
+                        </div>
+<div class="day-col-1 p-2 border-r border-outline-variant">
+<div class="font-label-sm text-label-sm text-outline uppercase">Mon</div>
+<div class="font-title-lg text-title-lg text-on-surface">21</div>
+</div>
+<div class="day-col-2 p-2 border-r border-outline-variant">
+<div class="font-label-sm text-label-sm text-outline uppercase">Tue</div>
+<div class="font-title-lg text-title-lg text-on-surface">22</div>
+</div>
+<div class="day-col-3 p-2 border-r border-outline-variant bg-surface-container-low"> <!-- Current Day Highlight -->
+<div class="font-label-sm text-label-sm text-primary uppercase font-bold">Wed</div>
+<div class="font-title-lg text-title-lg text-primary font-bold bg-primary/10 inline-block w-8 h-8 rounded-full leading-8">23</div>
+</div>
+<div class="day-col-4 p-2 border-r border-outline-variant">
+<div class="font-label-sm text-label-sm text-outline uppercase">Thu</div>
+<div class="font-title-lg text-title-lg text-on-surface">24</div>
+</div>
+<div class="day-col-5 p-2 border-r border-outline-variant">
+<div class="font-label-sm text-label-sm text-outline uppercase">Fri</div>
+<div class="font-title-lg text-title-lg text-on-surface">25</div>
+</div>
+<div class="day-col-6 p-2 border-r border-outline-variant bg-surface-container-lowest opacity-70">
+<div class="font-label-sm text-label-sm text-outline uppercase">Sat</div>
+<div class="font-title-lg text-title-lg text-on-surface">26</div>
+</div>
+<div class="day-col-7 p-2 bg-surface-container-lowest opacity-70">
+<div class="font-label-sm text-label-sm text-outline uppercase">Sun</div>
+<div class="font-title-lg text-title-lg text-on-surface">27</div>
+</div>
+</div>
+<!-- Grid Body -->
+<div class="calendar-grid relative z-10 bg-surface">
+<!-- Time labels & Row Lines -->
+<!-- 8 AM -->
+<div class="time-col time-row-8 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">8 AM</div>
+<div class="day-col-1 time-row-8 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-8 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-8 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-8 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-8 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-8 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-8 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- 9 AM -->
+<div class="time-col time-row-9 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">9 AM</div>
+<div class="day-col-1 time-row-9 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-9 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-9 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-9 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-9 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-9 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-9 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- 10 AM -->
+<div class="time-col time-row-10 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">10 AM</div>
+<div class="day-col-1 time-row-10 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-10 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-10 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-10 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-10 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-10 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-10 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- 11 AM -->
+<div class="time-col time-row-11 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">11 AM</div>
+<div class="day-col-1 time-row-11 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-11 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-11 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-11 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-11 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-11 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-11 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- 12 PM -->
+<div class="time-col time-row-12 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">12 PM</div>
+<div class="day-col-1 time-row-12 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-12 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-12 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-12 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-12 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-12 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-12 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- 1 PM -->
+<div class="time-col time-row-13 border-r border-b border-outline-variant p-2 text-right font-label-sm text-label-sm text-outline pt-3 relative z-10">1 PM</div>
+<div class="day-col-1 time-row-13 border-r border-b border-outline-variant"></div>
+<div class="day-col-2 time-row-13 border-r border-b border-outline-variant"></div>
+<div class="day-col-3 time-row-13 border-r border-b border-outline-variant bg-surface-container-low/30"></div>
+<div class="day-col-4 time-row-13 border-r border-b border-outline-variant"></div>
+<div class="day-col-5 time-row-13 border-r border-b border-outline-variant"></div>
+<div class="day-col-6 time-row-13 border-r border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<div class="day-col-7 time-row-13 border-b border-outline-variant bg-surface-container-lowest opacity-70"></div>
+<!-- EVENTS (Absolute positioning within the grid cells for precise time blocks, though for simplicity here using grid placement and spans if needed, but absolute is cleaner for a real calendar. We will use grid-area approach for conceptual layout) -->
+<!-- Monday 9am-10am - Completed (Green) -->
+<div class="day-col-1 time-row-9 m-1 p-2 rounded border-l-4 border-tertiary bg-tertiary-container/20 hover:shadow-md transition-shadow cursor-pointer z-20 group relative">
+<div class="font-label-sm text-label-sm text-on-tertiary-container font-bold mb-1">09:00 - 10:00</div>
+<div class="font-label-md text-label-md text-on-surface truncate">Alice Morgan</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Routine Cleaning</div>
+<div class="font-label-sm text-label-sm text-outline mt-1 truncate">Dr. Jenkins</div>
+</div>
+<!-- Tuesday 10am-11:30am - Scheduled (Blue) -->
+<div class="day-col-2 m-1 p-2 rounded border-l-4 border-primary bg-primary-container/20 hover:shadow-md transition-shadow cursor-pointer z-20 group" style="grid-row: 4 / span 2; height: calc(100% - 30px);">
+<div class="font-label-sm text-label-sm text-on-primary-container font-bold mb-1">10:00 - 11:30</div>
+<div class="font-label-md text-label-md text-on-surface truncate">Robert Fox</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Root Canal Eval</div>
+<div class="font-label-sm text-label-sm text-outline mt-1 truncate">Dr. Chen</div>
+</div>
+<!-- Wednesday 8:30am-9:30am - Missed (Orange approx) -->
+<div class="day-col-3 m-1 p-2 rounded border-l-4 border-orange-500 bg-orange-100 hover:shadow-md transition-shadow cursor-pointer z-20 group mt-8" style="grid-row: 2 / span 1;">
+<div class="font-label-sm text-label-sm text-orange-900 font-bold mb-1">08:30 - 09:30</div>
+<div class="font-label-md text-label-md text-on-surface truncate">Darrell Steward</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Extraction</div>
+<div class="font-label-sm text-label-sm text-outline mt-1 truncate">Dr. Jenkins</div>
+</div>
+<!-- Wednesday 11am-12pm - Scheduled (Blue) -->
+<div class="day-col-3 time-row-11 m-1 p-2 rounded border-l-4 border-primary bg-primary-container/20 hover:shadow-md transition-shadow cursor-pointer z-20 group">
+<div class="font-label-sm text-label-sm text-on-primary-container font-bold mb-1">11:00 - 12:00</div>
+<div class="font-label-md text-label-md text-on-surface truncate">Jane Cooper</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Whitening</div>
+<div class="font-label-sm text-label-sm text-outline mt-1 truncate">Dr. Rossi</div>
+</div>
+<!-- Thursday 1pm-2pm - Cancelled (Red) -->
+<div class="day-col-4 time-row-13 m-1 p-2 rounded border-l-4 border-error bg-error-container/40 hover:shadow-md transition-shadow cursor-pointer z-20 group">
+<div class="font-label-sm text-label-sm text-on-error-container font-bold mb-1 line-through opacity-70">13:00 - 14:00</div>
+<div class="font-label-md text-label-md text-on-surface truncate line-through opacity-70">Wade Warren</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Consultation</div>
+<div class="font-label-sm text-label-sm text-outline mt-1 truncate">Dr. Chen</div>
+</div>
+<!-- Current Time Indicator Line (approx Wednesday 10:15am) -->
+<div class="day-col-3 relative z-30 pointer-events-none" style="grid-row: 4;">
+<div class="absolute left-0 right-0 h-0.5 bg-error top-1/4"></div>
+<div class="absolute -left-1 w-2 h-2 rounded-full bg-error top-1/4 -translate-y-[3px]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-10 bg-surface-container-low border-t border-outline-variant flex justify-between items-center px-lg z-50">
+<div class="font-label-sm text-label-sm font-bold text-on-surface-variant">
+            © 2024 DentralFlow v2.4.0 • HIPAA Compliant
+        </div>
+<div class="flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Security</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>

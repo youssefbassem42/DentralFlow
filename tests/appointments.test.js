@@ -235,6 +235,18 @@ describe('Appointments Module Integration Tests', () => {
 
       expect(res.status).toBe(403);
     });
+
+    it('should allow Doctors to update appointment status only', async () => {
+      const res = await request(app)
+        .patch(`/api/v1/appointments/${appointmentId1}`)
+        .set('Authorization', `Bearer ${doctorToken}`)
+        .send({
+          status: 'Completed',
+        });
+
+      expect(res.status).toBe(200);
+      expect(res.body.data.status).toBe('Completed');
+    });
   });
 
   describe('DELETE /api/v1/appointments/:id', () => {

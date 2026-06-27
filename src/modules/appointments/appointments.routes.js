@@ -4,6 +4,7 @@ import { authenticate } from '../../common/middleware/auth.js';
 import { authorize } from '../../common/middleware/rbac.js';
 import { validate } from '../../common/middleware/validate.js';
 import { appointmentsValidators } from './appointments.validator.js';
+import { ForbiddenError } from '../../common/errors/AppError.js';
 
 const router = Router();
 
@@ -197,8 +198,20 @@ router
   )
   .patch(
     authenticate,
-    authorize('ADMIN', 'RECEPTIONIST'),
+    authorize('ADMIN', 'RECEPTIONIST', 'DOCTOR'),
     validate(appointmentsValidators.updateAppointment),
+    (req, res, next) => {
+      if (req.user.role === 'DOCTOR') {
+        const updates = Object.keys(req.body);
+        const isOnlyStatus = updates.every((key) => key === 'status');
+        if (!isOnlyStatus || updates.length === 0) {
+          return next(
+            new ForbiddenError('Doctors are only permitted to update appointment status.')
+          );
+        }
+      }
+      next();
+    },
     appointmentsController.updateAppointment
   )
   .delete(

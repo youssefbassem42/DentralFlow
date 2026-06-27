@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --border: 214 32% 91%; /* #e5e7eb */
+    --input: 214 32% 91%;
+    --ring: 200 100% 29%; /* Primary */
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Grid specific styles for the calendar */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr);
+  grid-template-rows: auto repeat(12, minmax(60px, auto)); /* 8am to 8pm (12 hours) */
+}
+
+.time-col {
+  grid-column: 1;
+}
+
+.day-col-1 { grid-column: 2; }
+.day-col-2 { grid-column: 3; }
+.day-col-3 { grid-column: 4; }
+.day-col-4 { grid-column: 5; }
+.day-col-5 { grid-column: 6; }
+.day-col-6 { grid-column: 7; }
+.day-col-7 { grid-column: 8; }
+
+/* Time rows mapping (8am = row 2, etc, because row 1 is header) */
+.time-row-8 { grid-row: 2; }
+.time-row-9 { grid-row: 3; }
+.time-row-10 { grid-row: 4; }
+.time-row-11 { grid-row: 5; }
+.time-row-12 { grid-row: 6; }
+.time-row-13 { grid-row: 7; }
+.time-row-14 { grid-row: 8; }
+.time-row-15 { grid-row: 9; }
+.time-row-16 { grid-row: 10; }
+.time-row-17 { grid-row: 11; }
+.time-row-18 { grid-row: 12; }
+.time-row-19 { grid-row: 13; }

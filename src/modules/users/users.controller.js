@@ -3,7 +3,7 @@ import { usersService } from './users.service.js';
 export class UsersController {
   getUsers = async (req, res, next) => {
     try {
-      const data = await usersService.getAllUsers();
+      const data = await usersService.getAllUsers(req.query);
       return res.status(200).json({
         success: true,
         message: 'Users retrieved successfully.',

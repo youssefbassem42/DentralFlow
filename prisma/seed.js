@@ -21,8 +21,36 @@ async function main() {
     },
   });
 
+  const doctorEmail = 'doctor@dcms.com';
+  const doctorUser = await prisma.user.upsert({
+    where: { email: doctorEmail },
+    update: {},
+    create: {
+      name: 'Dr. Sarah Jenkins',
+      email: doctorEmail,
+      password: hashedPassword,
+      phone: '+1234567891',
+      role: 'DOCTOR',
+      status: 'ACTIVE',
+    },
+  });
+
+  const receptionistEmail = 'receptionist@dcms.com';
+  const receptionistUser = await prisma.user.upsert({
+    where: { email: receptionistEmail },
+    update: {},
+    create: {
+      name: 'Jane Doe',
+      email: receptionistEmail,
+      password: hashedPassword,
+      phone: '+1234567892',
+      role: 'RECEPTIONIST',
+      status: 'ACTIVE',
+    },
+  });
+
   // eslint-disable-next-line no-console
-  console.log('✅ Database seeded. Default admin created:', adminUser.email);
+  console.log('✅ Database seeded. Created: admin, doctor, receptionist.');
 }
 
 main()

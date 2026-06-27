@@ -1,11 +1,13 @@
 import prisma from '../../common/database/prisma.js';
 
 export class UsersRepository {
-  async findMany() {
+  async findMany(filters = {}) {
+    const where = { deletedAt: null };
+    if (filters.role) {
+      where.role = filters.role;
+    }
     return prisma.user.findMany({
-      where: {
-        deletedAt: null,
-      },
+      where,
       include: {
         doctor: true,
         receptionist: true,

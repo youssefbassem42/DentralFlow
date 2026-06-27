@@ -81,7 +81,22 @@ const selfOrAdmin = (req, res, next) => {
  */
 router
   .route('/')
-  .get(authenticate, authorize('ADMIN'), usersController.getUsers)
+  .get(
+    authenticate,
+    (req, res, next) => {
+      if (req.user.role === 'ADMIN') {
+        return next();
+      }
+      if (
+        (req.user.role === 'DOCTOR' || req.user.role === 'RECEPTIONIST') &&
+        req.query.role === 'DOCTOR'
+      ) {
+        return next();
+      }
+      return next(new ForbiddenError('You do not have permission to access this resource.'));
+    },
+    usersController.getUsers
+  )
   .post(
     authenticate,
     authorize('ADMIN'),

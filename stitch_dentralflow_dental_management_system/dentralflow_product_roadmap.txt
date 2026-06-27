@@ -1,0 +1,22 @@
+# DentralFlow - Dental Clinic Management System (SaaS)
+
+## Project Overview
+DentralFlow is a professional-grade SaaS solution for dental clinics. The UI focuses on high density, clear information hierarchy, and efficient workflows for doctors, receptionists, and admins.
+
+## Core Screens (V1)
+1. **Authentication: Login** - Sleek, secure entrance with brand presence.
+2. **Dashboard** - Central command center with revenue stats, upcoming appointments, and clinical alerts.
+3. **Patient List** - High-performance data table with advanced filtering and quick-actions.
+4. **Patient Details (Timeline)** - Comprehensive 360 view of medical and financial history.
+5. **Appointment Calendar (Week View)** - Interactive scheduler with status color-coding.
+6. **Medical Examination Form** - Structured clinical entry with medical history context.
+7. **Treatment Plan Details** - Visual progress tracking and cost estimation.
+8. **Interactive Tooth Diagram (FDI)** - Visual clinical charting for specific treatments.
+9. **Inventory (Warehouse)** - Stock management with low-supply alerts.
+10. **Financial Dashboard** - Revenue analytics and invoice tracking.
+
+## Design Principles
+- **Efficiency**: Minimize clicks for common actions (booking, charting).
+- **Clarity**: Use color purposefully for statuses (Scheduled vs Completed).
+- **Trust**: Medical-grade precision with modern SaaS aesthetics.
+- **Accessibility**: High contrast text and clear interactive states.
