@@ -1,9 +1,9 @@
 import { Search, Bell, Settings } from 'lucide-react';
 import { useAuth } from '@/features/authentication/context';
-
+import { useNavigate } from 'react-router-dom';
 export function Header() {
   const { user, logout } = useAuth();
-
+  const navigate = useNavigate();
   return (
     <header className="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed top-0 right-0 w-[calc(100%-16rem)] h-16 border-b border-outline-variant dark:border-outline shadow-sm flex items-center justify-between px-6 z-40">
       <div className="flex-1 flex items-center gap-4">
@@ -19,10 +19,10 @@ export function Header() {
       </div>
       
       <div className="flex items-center gap-4">
-        <button className="text-muted-foreground hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-muted">
+        {/* <button className="text-muted hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-muted">
           <Bell size={20} />
-        </button>
-        <button className="text-muted-foreground hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-muted">
+        </button> */}
+        <button className="text-muted-foreground hover:text-primary transition-colors duration-200 p-2 rounded-full hover:bg-muted" onClick={() => navigate('/settings')}>
           <Settings size={20} />
         </button>
         
@@ -38,7 +38,7 @@ export function Header() {
             </div>
             <button 
               onClick={() => logout()}
-              className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors duration-200"
+              className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors duration-500"
             >
               Sign out
             </button>

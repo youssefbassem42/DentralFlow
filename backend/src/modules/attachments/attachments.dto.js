@@ -2,6 +2,7 @@ export class AttachmentDto {
   constructor(attachment) {
     this.id = attachment.id;
     this.doctorId = attachment.doctorId;
+    this.patientId = attachment.patientId || null;
     this.fileName = attachment.fileName;
     this.filePath = attachment.filePath;
     this.fileType = attachment.fileType;
@@ -14,6 +15,13 @@ export class AttachmentDto {
         id: attachment.doctor.id,
         name: attachment.doctor.user.name,
         specialization: attachment.doctor.specialization,
+      };
+    }
+
+    if (attachment.patient) {
+      this.patient = {
+        id: attachment.patient.id,
+        fullName: attachment.patient.fullName,
       };
     }
   }

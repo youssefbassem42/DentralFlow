@@ -6,12 +6,13 @@ import { AttachmentDto } from './attachments.dto.js';
 
 export class AttachmentsService {
   async getAttachments(query) {
-    const { page, limit, doctorId, fileType } = query;
+    const { page, limit, doctorId, patientId, fileType } = query;
 
     const { attachments, total } = await attachmentsRepository.findManyAndCount({
       page,
       limit,
       doctorId,
+      patientId,
       fileType,
     });
 
@@ -76,6 +77,7 @@ export class AttachmentsService {
 
     const attachment = await attachmentsRepository.create({
       doctorId,
+      patientId: payload.patientId || null,
       fileName: file.originalname,
       filePath: file.path,
       fileType: payload.fileType,

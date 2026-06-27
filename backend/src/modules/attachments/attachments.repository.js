@@ -1,7 +1,7 @@
 import prisma from '../../common/database/prisma.js';
 
 export class AttachmentsRepository {
-  async findManyAndCount({ page, limit, doctorId, fileType }) {
+  async findManyAndCount({ page, limit, doctorId, patientId, fileType }) {
     const skip = (page - 1) * limit;
 
     const where = {
@@ -10,6 +10,10 @@ export class AttachmentsRepository {
 
     if (doctorId) {
       where.doctorId = doctorId;
+    }
+
+    if (patientId) {
+      where.patientId = patientId;
     }
 
     if (fileType) {
@@ -27,6 +31,7 @@ export class AttachmentsRepository {
               user: true,
             },
           },
+          patient: true,
         },
         orderBy: {
           createdAt: 'desc',
@@ -52,6 +57,7 @@ export class AttachmentsRepository {
             user: true,
           },
         },
+        patient: true,
       },
     });
   }
@@ -65,6 +71,7 @@ export class AttachmentsRepository {
             user: true,
           },
         },
+        patient: true,
       },
     });
   }

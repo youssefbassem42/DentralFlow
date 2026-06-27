@@ -12,7 +12,7 @@ export function DashboardPage() {
           <h2 className="text-[28px] leading-[36px] font-semibold text-foreground tracking-tight">
             Good morning, {user?.firstName ? `Dr. ${user.firstName}` : 'Doctor'}
           </h2>
-          <p className="text-sm text-muted-foreground mt-1">Thursday, October 24, 2024</p>
+          <p className="text-sm text-muted-foreground mt-1">{new Date().toDateString()}</p>
         </div>
       </div>
 

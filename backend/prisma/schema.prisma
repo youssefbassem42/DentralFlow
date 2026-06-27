@@ -124,6 +124,7 @@ model Patient {
   treatmentPlans TreatmentPlan[]
   treatments   Treatment[]
   payments     Payment[]
+  attachments  Attachment[]
 
   @@index([phone])
   @@index([email])
@@ -248,6 +249,7 @@ model Payment {
 model Attachment {
   id        String         @id @default(uuid())
   doctorId  String
+  patientId String?
   fileName  String
   filePath  String
   fileType  AttachmentType
@@ -257,9 +259,11 @@ model Attachment {
   deletedAt DateTime?
 
   // Relations
-  doctor Doctor @relation(fields: [doctorId], references: [id])
+  doctor  Doctor   @relation(fields: [doctorId], references: [id])
+  patient Patient? @relation(fields: [patientId], references: [id])
 
   @@index([doctorId])
+  @@index([patientId])
 }
 
 model InventoryItem {

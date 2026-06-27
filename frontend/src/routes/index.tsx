@@ -3,16 +3,14 @@ import { LoginPage } from '@/features/authentication/LoginPage';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { PatientsPage } from '@/features/patients/PatientsPage';
+import { PatientProfilePage } from '@/features/patients/PatientProfilePage';
 import { AppointmentsPage } from '@/features/appointments/AppointmentsPage';
 import { DoctorsPage } from '@/features/doctors/DoctorsPage';
 import { WarehousePage } from '@/features/warehouse/WarehousePage';
 import { SettingsPage } from '@/features/settings/SettingsPage';
-import { ExaminationsPage } from '@/features/medicalExaminations/ExaminationsPage';
 import { TreatmentPlansPage } from '@/features/treatmentPlans/TreatmentPlansPage';
 import { TreatmentsPage } from '@/features/treatments/TreatmentsPage';
 import { PaymentsPage } from '@/features/payments/PaymentsPage';
-import { AttachmentsPage } from '@/features/attachments/AttachmentsPage';
-import { ReportsPage } from '@/features/reports/ReportsPage';
 
 const router = createBrowserRouter([
   {
@@ -36,12 +34,12 @@ const router = createBrowserRouter([
         element: <PatientsPage />,
       },
       {
-        path: '/appointments',
-        element: <AppointmentsPage />,
+        path: '/patients/:id',
+        element: <PatientProfilePage />,
       },
       {
-        path: '/examinations',
-        element: <ExaminationsPage />,
+        path: '/appointments',
+        element: <AppointmentsPage />,
       },
       {
         path: '/treatment-plans',
@@ -54,14 +52,6 @@ const router = createBrowserRouter([
       {
         path: '/payments',
         element: <PaymentsPage />,
-      },
-      {
-        path: '/attachments',
-        element: <AttachmentsPage />,
-      },
-      {
-        path: '/reports',
-        element: <ReportsPage />,
       },
       {
         path: '/doctors',

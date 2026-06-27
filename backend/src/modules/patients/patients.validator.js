@@ -21,6 +21,9 @@ export const queryPatientSchema = z.object({
   search: z.string().optional(),
   gender: z.string().optional(),
   bloodGroup: z.string().optional(),
+  doctorId: z.string().uuid().optional(),
+  status: z.enum(['Active', 'Inactive']).optional(),
+  lastVisit: z.enum(['last30Days', 'last6Months', 'anyTime']).optional(),
 });
 
 export const patientsValidators = {

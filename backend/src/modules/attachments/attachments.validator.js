@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const createAttachmentSchema = z.object({
   doctorId: z.string().uuid('Invalid doctor ID format').optional(),
+  patientId: z.string().uuid('Invalid patient ID format').optional(),
   fileType: z.enum(['X_Ray', 'Prescription', 'Images'], {
     errorMap: () => ({ message: 'FileType must be X_Ray, Prescription, or Images' }),
   }),
@@ -12,6 +13,7 @@ export const queryAttachmentsSchema = z.object({
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().positive().default(10),
   doctorId: z.string().uuid('Invalid doctor ID format').optional(),
+  patientId: z.string().uuid('Invalid patient ID format').optional(),
   fileType: z.enum(['X_Ray', 'Prescription', 'Images']).optional(),
 });
 

@@ -1,7 +1,7 @@
 import prisma from '../../common/database/prisma.js';
 
 export class PatientsRepository {
-  async findManyAndCount({ page, limit, search, gender, bloodGroup }) {
+  async findManyAndCount({ page, limit, search, gender, bloodGroup, doctorId, status, lastVisit }) {
     const skip = (page - 1) * limit;
 
     // Construct filtering queries
@@ -29,6 +29,64 @@ export class PatientsRepository {
       });
     }
 
+    if (doctorId) {
+      andConditions.push({
+        appointments: {
+          some: {
+            doctorId,
+            deletedAt: null,
+          },
+        },
+      });
+    }
+
+    if (status) {
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+      if (status === 'Active') {
+        andConditions.push({
+          OR: [
+            { createdAt: { gte: sixMonthsAgo } },
+            {
+              appointments: {
+                some: {
+                  appointmentDate: { gte: sixMonthsAgo },
+                  deletedAt: null,
+                },
+              },
+            },
+          ],
+        });
+      } else if (status === 'Inactive') {
+        andConditions.push({
+          createdAt: { lt: sixMonthsAgo },
+          appointments: {
+            none: {
+              appointmentDate: { gte: sixMonthsAgo },
+              deletedAt: null,
+            },
+          },
+        });
+      }
+    }
+
+    if (lastVisit && lastVisit !== 'anyTime') {
+      const cutoff = new Date();
+      if (lastVisit === 'last30Days') {
+        cutoff.setDate(cutoff.getDate() - 30);
+      } else if (lastVisit === 'last6Months') {
+        cutoff.setMonth(cutoff.getMonth() - 6);
+      }
+      andConditions.push({
+        appointments: {
+          some: {
+            appointmentDate: { gte: cutoff, lte: new Date() },
+            deletedAt: null,
+          },
+        },
+      });
+    }
+
     if (andConditions.length > 0) {
       where.AND = andConditions;
     }
@@ -41,6 +99,17 @@ export class PatientsRepository {
         take: limit,
         include: {
           creator: true,
+          appointments: {
+            where: { deletedAt: null },
+            orderBy: { appointmentDate: 'desc' },
+          },
+          treatments: {
+            where: { deletedAt: null },
+            orderBy: { sessionDate: 'desc' },
+          },
+          payments: {
+            where: { deletedAt: null },
+          },
         },
         orderBy: {
           createdAt: 'desc',
@@ -62,6 +131,17 @@ export class PatientsRepository {
       },
       include: {
         creator: true,
+        appointments: {
+          where: { deletedAt: null },
+          orderBy: { appointmentDate: 'desc' },
+        },
+        treatments: {
+          where: { deletedAt: null },
+          orderBy: { sessionDate: 'desc' },
+        },
+        payments: {
+          where: { deletedAt: null },
+        },
       },
     });
   }
@@ -80,6 +160,15 @@ export class PatientsRepository {
       data,
       include: {
         creator: true,
+        appointments: {
+          where: { deletedAt: null },
+        },
+        treatments: {
+          where: { deletedAt: null },
+        },
+        payments: {
+          where: { deletedAt: null },
+        },
       },
     });
   }
@@ -90,6 +179,17 @@ export class PatientsRepository {
       data,
       include: {
         creator: true,
+        appointments: {
+          where: { deletedAt: null },
+          orderBy: { appointmentDate: 'desc' },
+        },
+        treatments: {
+          where: { deletedAt: null },
+          orderBy: { sessionDate: 'desc' },
+        },
+        payments: {
+          where: { deletedAt: null },
+        },
       },
     });
   }

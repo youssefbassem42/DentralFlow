@@ -147,6 +147,36 @@ router
 
 /**
  * @openapi
+ * /patients/{id}/profile:
+ *   get:
+ *     summary: Retrieve full patient profile with all related data
+ *     description: Returns patient demographics, appointments, examinations, treatment plans, treatments, payments, and attachments in a single aggregated response. Accessible by ADMIN, DOCTOR, and RECEPTIONIST.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       200:
+ *         description: Patient full profile retrieved successfully
+ *       404:
+ *         description: Patient not found
+ */
+router
+  .route('/:id/profile')
+  .get(
+    authenticate,
+    authorize('ADMIN', 'DOCTOR', 'RECEPTIONIST'),
+    validate(patientsValidators.getPatient),
+    patientsController.getPatientProfile
+  );
+
+/**
+ * @openapi
  * /patients/{id}:
  *   get:
  *     summary: Get patient profile by ID
@@ -235,7 +265,7 @@ router
   )
   .delete(
     authenticate,
-    authorize('ADMIN'),
+    authorize('ADMIN', 'RECEPTIONIST'),
     validate(patientsValidators.getPatient),
     patientsController.deletePatient
   );

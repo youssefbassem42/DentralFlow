@@ -463,7 +463,7 @@ export function WarehousePage() {
       {/* ------------------ REGISTER / EDIT MODAL DRAWER ------------------ */}
       {isFormOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant rounded-xl p-6 w-full max-w-md shadow-2xl relative">
+          <div className="bg-card dark:bg-inverse-surface border border-outline-variant rounded-xl p-6 w-full max-w-md shadow-2xl relative">
             <button
               onClick={() => setIsFormOpen(false)}
               className="absolute right-4 top-4 p-1 hover:bg-muted rounded text-muted-foreground"
@@ -484,7 +484,7 @@ export function WarehousePage() {
                   type="text"
                   placeholder="e.g. Latex Gloves Medium"
                   {...register('item')}
-                  className="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
+                  className="w-full px-3 py-2 bg-card border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
                 />
                 {errors.item && (
                   <p className="text-[10px] text-error mt-1">{errors.item.message}</p>
@@ -500,7 +500,7 @@ export function WarehousePage() {
                     type="number"
                     placeholder="e.g. 50"
                     {...register('quantity', { valueAsNumber: true })}
-                    className="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-2 bg-card border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
                   />
                   {errors.quantity && (
                     <p className="text-[10px] text-error mt-1">{errors.quantity.message}</p>
@@ -515,7 +515,7 @@ export function WarehousePage() {
                     type="number"
                     placeholder="e.g. 10"
                     {...register('minimumQuantity', { valueAsNumber: true })}
-                    className="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-2 bg-card border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
                   />
                   {errors.minimumQuantity && (
                     <p className="text-[10px] text-error mt-1">{errors.minimumQuantity.message}</p>
@@ -533,7 +533,7 @@ export function WarehousePage() {
                     step="0.01"
                     placeholder="0.00"
                     {...register('price', { valueAsNumber: true })}
-                    className="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-2 bg-card border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
                   />
                   {errors.price && (
                     <p className="text-[10px] text-error mt-1">{errors.price.message}</p>
@@ -548,7 +548,7 @@ export function WarehousePage() {
                     type="text"
                     placeholder="e.g. Dental Supply Corp"
                     {...register('supplier')}
-                    className="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-2 bg-card border border-outline-variant rounded-lg text-xs text-foreground focus:outline-none focus:border-primary"
                   />
                 </div>
               </div>
@@ -557,7 +557,7 @@ export function WarehousePage() {
                 <button
                   type="button"
                   onClick={() => setIsFormOpen(false)}
-                  className="px-4 py-2 border border-outline-variant rounded-lg text-xs font-bold bg-surface hover:bg-surface-container-low text-foreground transition-colors"
+                  className="px-4 py-2 border border-outline-variant rounded-lg text-xs font-bold bg-card hover:bg-surface-container-low text-foreground transition-colors"
                 >
                   Discard
                 </button>

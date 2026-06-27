@@ -66,9 +66,9 @@ describe('Patients Module Integration Tests', () => {
   });
 
   afterAll(async () => {
-    // Cleanup patient records
-    if (patientId) {
-      await prisma.patient.deleteMany({ where: { id: patientId } });
+    // Cleanup patient records created by test receptionist
+    if (testReceptionistId) {
+      await prisma.patient.deleteMany({ where: { createdBy: testReceptionistId } });
     }
     // Cleanup user records
     if (testReceptionistId) {
@@ -237,24 +237,52 @@ describe('Patients Module Integration Tests', () => {
   });
 
   describe('DELETE /api/v1/patients/:id', () => {
-    it('should deny Receptionist from deleting patient', async () => {
+    it('should deny Doctor from deleting patient', async () => {
       const res = await request(app)
         .delete(`/api/v1/patients/${patientId}`)
-        .set('Authorization', `Bearer ${receptionistToken}`);
+        .set('Authorization', `Bearer ${doctorToken}`);
 
       expect(res.status).toBe(403);
     });
 
-    it('should allow Admin to soft-delete patient', async () => {
+    it('should allow Receptionist to soft-delete patient', async () => {
       const res = await request(app)
         .delete(`/api/v1/patients/${patientId}`)
-        .set('Authorization', `Bearer ${adminToken}`);
+        .set('Authorization', `Bearer ${receptionistToken}`);
 
       expect(res.status).toBe(200);
 
       // Verify patient is omitted from subsequent lookups
       const checkRes = await request(app)
         .get(`/api/v1/patients/${patientId}`)
+        .set('Authorization', `Bearer ${adminToken}`);
+
+      expect(checkRes.status).toBe(404);
+    });
+
+    it('should allow Admin to soft-delete patient', async () => {
+      // Register a temporary patient first
+      const phone = uniquePhone();
+      const createRes = await request(app)
+        .post('/api/v1/patients')
+        .set('Authorization', `Bearer ${receptionistToken}`)
+        .send({
+          fullName: 'Barry Allen',
+          gender: 'Male',
+          dateOfBirth: '1989-10-20',
+          phone,
+        });
+      const tempPatientId = createRes.body.data.id;
+
+      const res = await request(app)
+        .delete(`/api/v1/patients/${tempPatientId}`)
+        .set('Authorization', `Bearer ${adminToken}`);
+
+      expect(res.status).toBe(200);
+
+      // Verify patient is omitted
+      const checkRes = await request(app)
+        .get(`/api/v1/patients/${tempPatientId}`)
         .set('Authorization', `Bearer ${adminToken}`);
 
       expect(checkRes.status).toBe(404);

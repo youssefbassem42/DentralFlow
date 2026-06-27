@@ -8,12 +8,9 @@ import {
   Settings, 
   HelpCircle, 
   Info,
-  ClipboardList,
   TrendingUp,
   Activity,
   CreditCard,
-  Paperclip,
-  BarChart3
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -24,16 +21,21 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const navItems = [
+// Receptionist sees: Dashboard, Appointments, Patients, Payments, Settings
+const receptionistNav = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-  { name: 'Patients', path: '/patients', icon: Users },
   { name: 'Appointments', path: '/appointments', icon: Calendar },
-  { name: 'Examinations', path: '/examinations', icon: ClipboardList },
-  { name: 'Treatment Plans', path: '/treatment-plans', icon: TrendingUp },
-  { name: 'Treatments', path: '/treatments', icon: Activity },
+  { name: 'Patients', path: '/patients', icon: Users },
   { name: 'Payments', path: '/payments', icon: CreditCard },
-  { name: 'Attachments', path: '/attachments', icon: Paperclip },
-  { name: 'Reports', path: '/reports', icon: BarChart3 },
+  { name: 'Settings', path: '/settings', icon: Settings },
+];
+
+// Admin/Doctor sees: Dashboard, Treatment Plans, Treatment Sessions, Patients, Doctors, Warehouse, Settings
+const adminDoctorNav = [
+  { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+  { name: 'Treatment Plans', path: '/treatment-plans', icon: TrendingUp },
+  { name: 'Treatment Sessions', path: '/treatments', icon: Activity },
+  { name: 'Patients', path: '/patients', icon: Users },
   { name: 'Doctors', path: '/doctors', icon: Stethoscope },
   { name: 'Warehouse', path: '/warehouse', icon: Archive },
   { name: 'Settings', path: '/settings', icon: Settings },
@@ -42,15 +44,7 @@ const navItems = [
 export function Sidebar() {
   const { user } = useAuth();
 
-  const filteredNavItems = navItems.filter((item) => {
-    if (item.path === '/examinations' && user?.role === 'RECEPTIONIST') {
-      return false;
-    }
-    if (item.path === '/reports' && user?.role !== 'ADMIN') {
-      return false;
-    }
-    return true;
-  });
+  const navItems = user?.role === 'RECEPTIONIST' ? receptionistNav : adminDoctorNav;
 
   return (
     <aside className="bg-surface dark:bg-inverse-surface w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col h-screen py-6 px-4 z-50">
@@ -67,7 +61,7 @@ export function Sidebar() {
       </button>
 
       <nav className="flex-1 space-y-2 overflow-y-auto">
-        {filteredNavItems.map((item) => (
+        {navItems.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}

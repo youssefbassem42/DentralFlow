@@ -30,6 +30,21 @@ export class PatientsController {
     }
   };
 
+  getPatientProfile = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const data = await patientsService.getPatientProfile(id);
+      return res.status(200).json({
+        success: true,
+        message: 'Patient full profile retrieved successfully.',
+        data,
+        errors: [],
+      });
+    } catch (error) {
+      return next(error);
+    }
+  };
+
   registerPatient = async (req, res, next) => {
     try {
       const creatorId = req.user.id;
