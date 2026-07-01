@@ -47,6 +47,7 @@ export function PaymentsPage() {
   const [view, setView] = useState<'list' | 'create' | 'invoice' | 'ledger'>('list');
   const [selectedPayment, setSelectedPayment] = useState<Payment | null>(null);
   const [activeLedgerPatientId, setActiveLedgerPatientId] = useState<string | null>(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
   // Filters & Search
   const [searchQuery, setSearchQuery] = useState('');
@@ -151,6 +152,33 @@ export function PaymentsPage() {
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleDownloadPdf = async (payment: Payment) => {
+    setIsGeneratingPdf(true);
+    try {
+      const { InvoicePdfDocument } = await import('./InvoicePdfDocument');
+      const { pdf } = await import('@react-pdf/renderer');
+      
+      const doc = <InvoicePdfDocument payment={payment} />;
+      const blob = await pdf(doc).toBlob();
+      
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `Invoice-${payment.invoiceNumber}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      
+      toast.success('Invoice PDF downloaded successfully.');
+    } catch (error) {
+      console.error('Failed to generate PDF', error);
+      toast.error('Failed to generate PDF invoice.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
   };
 
   // Local filter search querying titles, patient names, and doctors
@@ -430,12 +458,17 @@ export function PaymentsPage() {
                 <Printer size={14} /> Print Invoice
               </button>
               <button
-                onClick={() => {
-                  toast.success('Downloaded invoice PDF (Mocked).');
-                }}
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-xs font-bold hover:brightness-95 flex items-center gap-2 shadow-sm"
+                disabled={isGeneratingPdf}
+                onClick={() => selectedPayment && handleDownloadPdf(selectedPayment)}
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-xs font-bold hover:brightness-95 flex items-center gap-2 shadow-sm disabled:opacity-50"
               >
-                Download PDF
+                {isGeneratingPdf ? (
+                  <>
+                    <Loader2 className="animate-spin w-3.5 h-3.5" /> Generating...
+                  </>
+                ) : (
+                  'Download PDF'
+                )}
               </button>
             </div>
           </div>
